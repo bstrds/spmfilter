@@ -1,0 +1,34 @@
+#ifndef NAIVEBAYESCLASSIFIER_H_
+#define NAIVEBAYESCLASSIFIER_H_
+
+#include "instancepool.h"
+#include "classifier.h"
+#include <set>
+
+using namespace std;
+
+class NaiveBayesClassifier : public Classifier
+{
+
+typedef struct cop
+{
+	float copspm;
+	float copham;
+}cop;
+
+private:
+	float pspm;
+	float pham;
+	cop *probs;
+	set<unsigned> keyset;
+
+public:
+	NaiveBayesClassifier();
+	void train(const InstancePool& trainingPool);
+	bool classify(const Instance& inst) const;
+	~NaiveBayesClassifier();
+
+};
+
+
+#endif /* NAIVEBAYESCLASSIFIER_H_ */
