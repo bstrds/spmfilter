@@ -1,3 +1,8 @@
+/*				*
+ *				*
+ *				*
+ *				*/
+
 #include "nbclassifier.h"
 #include <set>
 #include <string>
