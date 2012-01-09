@@ -1,5 +1,3 @@
-// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
-
 #ifndef NAIVEBAYESCLASSIFIER_H_
 #define NAIVEBAYESCLASSIFIER_H_
 

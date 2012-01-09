@@ -1,5 +1,3 @@
-// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
-
 #include "nbclassifier.h"
 #include <set>
 #include <string>

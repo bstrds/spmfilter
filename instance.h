@@ -1,5 +1,3 @@
-/*lol*/
-
 #ifndef INSTANCE_H_
 #define INSTANCE_H_
 

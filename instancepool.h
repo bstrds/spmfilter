@@ -1,4 +1,3 @@
-
 #ifndef INSTANCEPOOL_H_
 #define INSTANCEPOOL_H_
 
