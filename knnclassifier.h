@@ -1,3 +1,4 @@
+// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
 
 #ifndef KNNCLASSIFIER_H_
 #define KNNCLASSIFIER_H_
@@ -7,7 +8,7 @@
 
 using namespace std;
 
-typedef struct board
+typedef struct board					// Struct pou krataei ena bool category kai to distance se float
 {
 	bool category;
 	float dist;
@@ -17,9 +18,9 @@ class KNNClassifier : public Classifier {
 
 private:
 	unsigned short k;
-	board *dists;
+	board *dists;			//dilosi pinaka apo structs typou board
 	bool check;
-	InstancePool *ip;
+	InstancePool *ip;		
 
 public:
 

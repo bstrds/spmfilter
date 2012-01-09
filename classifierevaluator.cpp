@@ -1,10 +1,12 @@
+// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
+
 #include "classifierevaluator.h"
 
 using namespace std;
 
 
 ClassifierEvaluator::ClassifierEvaluator(Classifier& classifier,const InstancePool& trainingPool, const InstancePool& testPool)
-{
+{		//kataskeyastis tis classifierevaluator
 
 	tpos=0;
 	tneg=0;
@@ -13,7 +15,7 @@ ClassifierEvaluator::ClassifierEvaluator(Classifier& classifier,const InstancePo
 	total=0;
 	classifier.train(trainingPool);
 	this->total=testPool.getNumberOfInstances();
-	for (unsigned i=0; i<total; i++)
+	for (unsigned i=0; i<total; i++)				//Ypologizontai ta stoixeia pou xreiazontai gia ta accuracy recall precision
 	{
 		if(testPool[i].getCategory())
 		{
@@ -40,14 +42,14 @@ ClassifierEvaluator::ClassifierEvaluator(Classifier& classifier,const InstancePo
 	}
 }
 
-float ClassifierEvaluator::getAccuracy() const
+float ClassifierEvaluator::getAccuracy() const						//me8odos ypologismou accuracy
 {
 	float a = 0.0;
 	a = ((float)(this->tpos + this->tneg) / this->total );
 	return a;
 }
 
-float ClassifierEvaluator::getPrecision() const
+float ClassifierEvaluator::getPrecision() const					// me8odos ypologismou precision
 {
 	float a = 0.0;
 	if (((float)tpos + (float)fpos)!=0)
@@ -62,8 +64,8 @@ float ClassifierEvaluator::getPrecision() const
 
 }
 
-float ClassifierEvaluator::getRecall() const
-{
+float ClassifierEvaluator::getRecall() const				//me8odos ypologismou recall
+{	
 	float a = 0.0;
 	if (((float)(this->tpos + this->fneg))!=0)
 	{

@@ -1,3 +1,5 @@
+// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
+
 #ifndef CLASSIFIER_H_
 #define CLASSIFIER_H_
 
@@ -6,11 +8,11 @@
 
 using namespace std;
 
-class Classifier
+class Classifier							//afirimeni eikonikh me8odos
 {
-
-public:
-	virtual void train(const InstancePool& trainingPool) = 0;
+						
+public:									
+	virtual void train(const InstancePool& trainingPool) = 0;	//dhmosies eikonikes me9odoi
 	virtual bool classify(const Instance& inst) const = 0;
 	virtual ~Classifier() {}
 
@@ -18,3 +20,6 @@ public:
 
 
 #endif
+
+
+//Den symperilavame arxeio cpp ka8ws den xreiazotan

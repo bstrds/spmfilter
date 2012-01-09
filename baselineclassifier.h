@@ -1,3 +1,5 @@
+// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
+
 #ifndef BASELINECLASSIFIER_H_
 #define BASELINECLASSIFIER_H_
 
@@ -6,18 +8,18 @@
 
 using namespace std;
 
-class BaselineClassifier : public Classifier
+class BaselineClassifier : public Classifier		//Dilosi ypoklasis baseline tis klasis classifier
 {
 
-private:
+private:						//dilosi idiotikwn metavlitwn
 	unsigned spmc;
 	unsigned hamc;
 
-public:
+public:							//dilosi dimosiwn me8odwn
 	BaselineClassifier();
 	void train(const InstancePool& trainingPool);
 	bool classify(const Instance& inst) const;
-	~BaselineClassifier() {}
+	~BaselineClassifier() {}				//katastrofeas pou den periexete sto cpp giati ylopoieitai edw.
 };
 
 #endif

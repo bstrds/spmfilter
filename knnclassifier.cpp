@@ -1,3 +1,5 @@
+// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
+
 #include "knnclassifier.h"
 #include <math.h>
 #include <set>
@@ -5,35 +7,35 @@
 using namespace std;
 
 
-KNNClassifier::KNNClassifier(unsigned short kin)
+KNNClassifier::KNNClassifier(unsigned short kin)				//Kataskeyastis KNN
 {
 	this->k = kin;
 	this->check = true;
 	(*ip) = InstancePool();
 }
 
-KNNClassifier::~KNNClassifier()
+KNNClassifier::~KNNClassifier()							//Katastrofeas KNN
 {
 	delete[] this->dists;
 	delete this->ip;
 }
 
-float KNNClassifier::distance(const Instance& inst1, const Instance& inst2)
+float KNNClassifier::distance(const Instance& inst1, const Instance& inst2)		//Methodos Ypologismou Euklidias Apostasis
 {
 
 	set<unsigned> keyset;
 
-	for (unsigned i=0; i<inst1.getNumberOfFeatures(); i++)
+	for (unsigned i=0; i<inst1.getNumberOfFeatures(); i++)			
 	{
 		keyset.insert(inst1.getFeatureID(i));
 	}
 	for (unsigned i=0; i<inst2.getNumberOfFeatures(); i++)
 	{
-		keyset.insert(inst2.getFeatureID(i));
+		keyset.insert(inst2.getFeatureID(i));				//gemise ena set me ola ta keyw (id) poy yparxoyn kai sta 2 minimata 
 	}
 	unsigned size = keyset.size();
 	unsigned check1[size];
-	unsigned check2[size];
+	unsigned check2[size];							//pinakes me 8eseis gia ola ta id gia ta 2 minimata inst1 inst2
 	for (unsigned i=0; i<size; i++)
 	{
 		check1[i] = 0;
@@ -45,7 +47,7 @@ float KNNClassifier::distance(const Instance& inst1, const Instance& inst2)
 	{
 		for (unsigned i=0; i<inst1.getNumberOfFeatures(); i++)
 		{
-			if(*it==inst1.getFeatureID(i))
+			if(*it==inst1.getFeatureID(i))					//otan vriskei idio ID pernei to freq allios menei timh 0
 			{
 				check1[counter] = inst1.getFrequency(i);
 			}
@@ -63,7 +65,7 @@ float KNNClassifier::distance(const Instance& inst1, const Instance& inst2)
 	unsigned sum = 0;
 	for(unsigned i=0; i<size; i++)
 	{
-		unsigned a = 0;
+		unsigned a = 0;						//Ylopoihsh typou Eyklidias Apostasis
 		if(check1[i]>check2[i])
 		{
 			a = check1[i]-check2[i];
@@ -78,11 +80,11 @@ float KNNClassifier::distance(const Instance& inst1, const Instance& inst2)
 	return a;
 }
 
-void KNNClassifier::train(const InstancePool& trainingPool)
+void KNNClassifier::train(const InstancePool& trainingPool)		//methodos ekpaideusis gia tin KNN
 {
 	if((*ip).getNumberOfInstances()==0)
 	{
-		this->ip = new InstancePool(trainingPool);
+		this->ip = new InstancePool(trainingPool);		//antigrafetai dynamika to trainingPool se ena neo InstancePool
 	}
 	else
 	{
@@ -90,12 +92,12 @@ void KNNClassifier::train(const InstancePool& trainingPool)
 		this->ip = new InstancePool(trainingPool);
 	}
 	newboard();
-	this->check=false;
+	this->check=false;					
 }
 
 bool KNNClassifier::classify(const Instance& inst) const
 {
-	if(this->check)
+	if(this->check)					//elegxos gia to an exei kli8ei hdh h train
 	{
 		return false;
 	}
@@ -109,7 +111,7 @@ bool KNNClassifier::classify(const Instance& inst) const
 		dists[i].dist=distance(inst,(*ip)[i]);
 		dists[i].category=(*ip)[i].getCategory();
 	}
-    for(unsigned i=1; (i<=(*ip).getNumberOfInstances()); i++)
+    for(unsigned i=1; (i<=(*ip).getNumberOfInstances()); i++)				//fysalida ascending me ta dists
 	{
 		for (unsigned j=0; j<((*ip).getNumberOfInstances()-1); j++)
 		{

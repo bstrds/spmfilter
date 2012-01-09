@@ -1,11 +1,13 @@
+// Ζαχαρόπουλος Ερμής (Α.Μ 3100219)   &  Κυπριανίδης Γιώργος (Α.Μ 3100225) 
+
 #ifndef CLASSIFIEREVALUATOR_H_
 #define CLASSIFIEREVALUATOR_H_
 
 #include "classifier.h"
 
-class ClassifierEvaluator
+class ClassifierEvaluator				//o sxoliasmos einai peritos :/		
 {
-private:
+private:											
 
 	unsigned tpos;
 	unsigned tneg;
